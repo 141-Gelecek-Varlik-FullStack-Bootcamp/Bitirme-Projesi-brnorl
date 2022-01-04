@@ -6,7 +6,12 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using site.DB.Models;
 using site.Model.BillModels;
+using site.Model.Payment;
 using site.Model.ResidentModels;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace site.Service.Resident
 {
@@ -156,6 +161,39 @@ namespace site.Service.Resident
             return result;
         }
 
+        public bool GetPayment(PaymentModel payment, string TcNo)
+        {
+            bool result = false;
+            using (var srv = new SiteContext())
+            {
+                var resident = srv.Residents.Where(
+                   r => !r.IsDeleted && r.IsActive
+               ).Include(r => r.Bill).SingleOrDefault(r => r.TcNo == TcNo);
+
+                if (resident is null)
+                {
+                    return result;
+                }
+                //Paid
+                resident.DueIsPaid = true;
+                resident.Bill.ElectricIsPaid = true;
+                resident.Bill.GasIsPaid = true;
+                resident.Bill.WaterIsPaid = true;
+                srv.SaveChanges();
+
+                //MongoDB
+                var connectionString = "mongodb://localhost";
+                var Client = new MongoClient(connectionString);
+                var DB = Client.GetDatabase("Site");
+                var collection = DB.GetCollection<BsonDocument>("Payments");
+                var json = JsonConvert.SerializeObject(payment);
+                var data = BsonDocument.Parse(json);
+                collection.InsertOneAsync(data);
+                result = true;
+            }
+
+            return result;
+        }
     }
 
 }

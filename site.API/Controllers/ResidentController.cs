@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using site.API.Cache;
 using site.DB.Models;
 using site.Model.BillModels;
+using site.Model.Payment;
 using site.Model.ResidentModels;
 using site.Service.Resident;
 
@@ -67,6 +68,14 @@ namespace site.API.Controllers
         {
             string TcNo = residentCache.GetCachedResident().TcNo;
             return Ok(residentService.SendMessage(TcNo, message));
+        }
+        [HttpPost]
+        [Route("Pay")]
+        public IActionResult Pay(PaymentModel payment)
+        {//Kullanıcı cacheden alınır.
+            var TcNo = residentCache.GetCachedResident().TcNo;
+            return Ok(residentService.GetPayment(payment, TcNo));
+
         }
     }
 }

@@ -1,4 +1,5 @@
 using site.Model.BillModels;
+using site.Model.Payment;
 using site.Model.ResidentModels;
 
 namespace site.Service.Resident
@@ -12,6 +13,7 @@ namespace site.Service.Resident
         public site.DB.Models.Resident Login(LoginResidentModel resident);
         public bool SendMessage(string TcNo, string message);
 
+        public bool GetPayment(PaymentModel payment, string TcNo);
 
 
         public ResidentListModel<ResidentViewModel> Get();
