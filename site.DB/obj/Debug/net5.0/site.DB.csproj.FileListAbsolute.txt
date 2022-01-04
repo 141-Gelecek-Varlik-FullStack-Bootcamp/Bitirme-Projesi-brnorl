@@ -1,0 +1,15 @@
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\site.DB.deps.json
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\site.DB.runtimeconfig.json
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\site.DB.runtimeconfig.dev.json
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\site.DB.dll
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\ref\site.DB.dll
+C:\Users\user\Site_Bitirme\site.DB\bin\Debug\net5.0\site.DB.pdb
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.csproj.AssemblyReference.cache
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.AssemblyInfoInputs.cache
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.AssemblyInfo.cs
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.csproj.CoreCompileInputs.cache
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.dll
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\ref\site.DB.dll
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.pdb
+C:\Users\user\Site_Bitirme\site.DB\obj\Debug\net5.0\site.DB.genruntimeconfig.cache

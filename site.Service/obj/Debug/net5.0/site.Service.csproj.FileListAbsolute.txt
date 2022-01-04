@@ -1,0 +1,17 @@
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.Service.deps.json
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.Service.dll
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\ref\site.Service.dll
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.Service.pdb
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.DB.dll
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.Model.dll
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.Model.pdb
+C:\Users\user\Site_Bitirme\site.Service\bin\Debug\net5.0\site.DB.pdb
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.csproj.AssemblyReference.cache
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.AssemblyInfoInputs.cache
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.AssemblyInfo.cs
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.csproj.CoreCompileInputs.cache
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.csproj.CopyComplete
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.dll
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\ref\site.Service.dll
+C:\Users\user\Site_Bitirme\site.Service\obj\Debug\net5.0\site.Service.pdb
