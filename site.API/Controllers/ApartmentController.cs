@@ -29,17 +29,23 @@ namespace site.API.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult CreateApartment([FromBody] CreateApartmentModel newApartment)
         {
             var data = mapper.Map<Apartment>(newApartment);
             return Ok(apartmentService.Insert(data));
         }
         [HttpPut]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult UpdateApartment(string block, int no, [FromBody] UpdateApartmentModel updatedApartment)
         {
             return Ok(apartmentService.UpdateApartment(updatedApartment, block, no));
         }
         [HttpDelete]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult DeleteApartment(string block, int no)
         {
             return Ok(apartmentService.DeleteApartment(block, no));

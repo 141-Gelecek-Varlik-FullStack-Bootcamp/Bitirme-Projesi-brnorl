@@ -23,28 +23,37 @@ namespace site.API.Controllers
             residentCache = _residentCache;
         }
         [HttpGet]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult Get()
         {
             return Ok(residentService.Get());
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult CreateResident(string block, int no, [FromBody] CreateResidentModel newResident)
         {
             var data = mapper.Map<Resident>(newResident);
             return Ok(residentService.Insert(data, block, no));
         }
         [HttpDelete]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult DeleteResident(string TcNo)
         {
             return Ok(residentService.Delete(TcNo));
         }
 
         [HttpPut]
+        [ServiceFilter(typeof(LoginFilter))]
+        [ServiceFilter(typeof(AdminFilter))]
         public IActionResult UpdateResident(string TcNo, [FromBody] UpdateResidentModel updatedResident)
         {
             return Ok(residentService.Update(updatedResident, TcNo));
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
         [Route("Bill")]
         public IActionResult AssignBill(string TcNo, [FromBody] CreateBillModel newBill)
         {
@@ -63,6 +72,7 @@ namespace site.API.Controllers
             return BadRequest("Invalid Account.");
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
         [Route("SendMessage")]
         public IActionResult SendMessage([FromBody] ResidentMessage message)
         {
@@ -70,12 +80,12 @@ namespace site.API.Controllers
             return Ok(residentService.SendMessage(TcNo, message));
         }
         [HttpPost]
+        [ServiceFilter(typeof(LoginFilter))]
         [Route("Pay")]
         public IActionResult Pay(PaymentModel payment)
         {//Kullanıcı cacheden alınır.
             var TcNo = residentCache.GetCachedResident().TcNo;
             return Ok(residentService.GetPayment(payment, TcNo));
-
         }
     }
 }
