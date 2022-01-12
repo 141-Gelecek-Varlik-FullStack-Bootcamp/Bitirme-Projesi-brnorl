@@ -65,7 +65,7 @@ namespace site.Service.Apartment
             using (var srv = new SiteContext())
             {
                 var data = srv.Apartments.Where(
-                    a => !a.IsDeleted).SingleOrDefault(a => a.Block == block && a.No == no);
+                    a => !a.IsDeleted).FirstOrDefault(a => a.Block == block && a.No == no);
                 if (data is null)
                 {
                     return result;

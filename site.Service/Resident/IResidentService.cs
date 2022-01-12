@@ -11,7 +11,7 @@ namespace site.Service.Resident
         public bool Update(UpdateResidentModel updatedResident, string TcNo);
         public bool AssignBill(CreateBillModel newBill, string TcNo);
         public site.DB.Models.Resident Login(LoginResidentModel resident);
-        public bool SendMessage(string TcNo, string message);
+        public bool SendMessage(string TcNo, ResidentMessage message);
 
         public bool GetPayment(PaymentModel payment, string TcNo);
 

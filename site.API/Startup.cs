@@ -45,6 +45,8 @@ namespace site.API
             services.AddScoped<LoginFilter>();
             services.AddScoped<AdminFilter>();
 
+            services.AddCors();
+
             services.AddMemoryCache();
             services.AddSingleton<IResidentCache, ResidentCache>();
 
@@ -67,6 +69,11 @@ namespace site.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "site.API v1"));
             }
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+            );
 
             app.UseHttpsRedirection();
 

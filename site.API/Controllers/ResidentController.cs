@@ -58,13 +58,13 @@ namespace site.API.Controllers
             if (loginedResident is not null)
             {
                 residentCache.Cache(loginedResident);
-                return Ok("Login success");
+                return Ok(loginedResident);
             }
             return BadRequest("Invalid Account.");
         }
         [HttpPost]
         [Route("SendMessage")]
-        public IActionResult SendMessage(string message)
+        public IActionResult SendMessage([FromBody] ResidentMessage message)
         {
             string TcNo = residentCache.GetCachedResident().TcNo;
             return Ok(residentService.SendMessage(TcNo, message));

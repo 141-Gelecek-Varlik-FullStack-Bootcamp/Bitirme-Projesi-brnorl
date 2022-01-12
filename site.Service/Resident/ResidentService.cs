@@ -131,14 +131,14 @@ namespace site.Service.Resident
         {
             using (var srv = new SiteContext())
             {
-                var data = srv.Residents.FirstOrDefault(
+                var data = srv.Residents.Where(
                 r => !r.IsDeleted && r.IsActive && r.TcNo == resident.TcNo && r.Password == resident.Password
-            );
+            ).Include(r => r.Apartment).Include(r => r.Bill).FirstOrDefault();
                 return data;
 
             }
         }
-        public bool SendMessage(string TcNo, string message)
+        public bool SendMessage(string TcNo, ResidentMessage message)
         {
             bool result = false;
             using (var srv = new SiteContext())
@@ -152,10 +152,11 @@ namespace site.Service.Resident
                 }
                 srv.Residents.FirstOrDefault(
                     r => !r.IsDeleted && r.IsActive && r.TcNo == TcNo
-                ).Message = message;
+                ).Message = message.Message;
                 srv.Residents.FirstOrDefault(
                     r => !r.IsDeleted && r.IsActive && r.TcNo == TcNo
                 ).MessageIsRead = false;
+                result = true;
                 srv.SaveChanges();
             }
             return result;
@@ -175,10 +176,18 @@ namespace site.Service.Resident
                     return result;
                 }
                 //Paid
-                resident.DueIsPaid = true;
-                resident.Bill.ElectricIsPaid = true;
-                resident.Bill.GasIsPaid = true;
-                resident.Bill.WaterIsPaid = true;
+                srv.Residents.Where(
+                   r => !r.IsDeleted && r.IsActive
+               ).Include(r => r.Bill).SingleOrDefault(r => r.TcNo == TcNo).DueIsPaid = true;
+                srv.Residents.Where(
+                   r => !r.IsDeleted && r.IsActive
+               ).Include(r => r.Bill).SingleOrDefault(r => r.TcNo == TcNo).Bill.ElectricIsPaid = true;
+                srv.Residents.Where(
+                   r => !r.IsDeleted && r.IsActive
+               ).Include(r => r.Bill).SingleOrDefault(r => r.TcNo == TcNo).Bill.GasIsPaid = true;
+                srv.Residents.Where(
+                   r => !r.IsDeleted && r.IsActive
+               ).Include(r => r.Bill).SingleOrDefault(r => r.TcNo == TcNo).Bill.WaterIsPaid = true;
                 srv.SaveChanges();
 
                 //MongoDB
