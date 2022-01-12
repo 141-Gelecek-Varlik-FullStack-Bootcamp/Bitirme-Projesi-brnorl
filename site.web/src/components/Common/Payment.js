@@ -22,7 +22,6 @@ export default function Payment({total}) {
         expirationDate:data.get("expirationDate"),
         paymentDate:date,
     };
-    console.log(payRequest);
         await axios.post("https://localhost:5001/api/Resident/Pay",payRequest).then(
             window.location.reload()
         );

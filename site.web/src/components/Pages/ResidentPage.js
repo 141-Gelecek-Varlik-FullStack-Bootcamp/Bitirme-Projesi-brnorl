@@ -22,7 +22,6 @@ export default function ResidentPage() {
     const data = localStorage.getItem("resident");
     const resident = JSON.parse(data);
     const total = resident?.data?.dues + resident?.data?.bill?.electric + resident?.data?.bill?.gas + resident?.data?.bill?.water;
-    console.log(resident);
     const [expanded, setExpanded] = useState(false);
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);

@@ -37,8 +37,6 @@ export default function CreateBill() {
         electricIsPaid:electricIsPaid,
         gasIsPaid:gasIsPaid,
     };
-    console.log(createRequest);
-    
         await axios.post(`https://localhost:5001/api/Resident/Bill?TcNo=${data.get("tcNo")}`,createRequest).then(
             window.location.reload()
         );

@@ -17,9 +17,7 @@ export default function CreateApartment() {
         type:data.get("type"),
         floor:parseInt(data.get("floor")),
         no:parseInt(data.get("no")),
-    };
-    console.log(createRequest);
-    
+    };    
         await axios.post("https://localhost:5001/api/Apartment",createRequest).then(
             window.location.reload()
         );

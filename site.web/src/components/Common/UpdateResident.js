@@ -33,7 +33,6 @@ export default function UpdateResident() {
         isOwner:isOwner,
         isAdmin:isAdmin,
     };
-    console.log(putRequest);
     await axios.put(`https://localhost:5001/api/Resident?TcNo=${data.get("tcNo")}`,putRequest)
     .then(() => window.location.reload());
 }

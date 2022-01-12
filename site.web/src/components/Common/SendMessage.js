@@ -15,7 +15,6 @@ export default function SendMessage() {
         const messageRequest = {
         message:data.get("message")
     };
-    console.log(messageRequest);
         await axios.post("https://localhost:5001/api/Resident/SendMessage",messageRequest).then(
             window.location.reload()
         );

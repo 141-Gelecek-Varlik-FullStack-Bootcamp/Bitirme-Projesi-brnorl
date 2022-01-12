@@ -37,7 +37,6 @@ export default function CreateResident() {
         isOwner:isOwner,
         isAdmin:isAdmin,
     };
-    console.log(createRequest);
     await axios.post(`https://localhost:5001/api/Resident?block=${data.get("block")}&no=${data.get("no")}`,createRequest).then(
         window.location.reload()
         );
